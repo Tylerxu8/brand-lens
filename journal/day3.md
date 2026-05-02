@@ -36,7 +36,39 @@ To no have git track the venv/ folder, we created a .gitignore file
 
 Commit "Add gitignore"
 
-## Installing 
+## Installing first package
+While venv is still active:
+
+- 'pip install requests'
+- 'pip list'
+
+'pip' is pythons package installer
+'request' is the library for making HTTP calls in python, it is what most python programs use to fetch web pages or call APIs
+
+- 'pip list' shows whats installed in venv
+
+## Fetching my first webpage
+
+Create a new file: fetch.py
+
+- 'touch fetch.py'
+- 'open -a "Sublime Text" fetch.py'
+
+## In Sublime
+
+- 'import requests'
+
+- 'url = "https://example.com"'
+- 'response = requests.get(url)'
+
+- 'print("status code:", response.status_code)'
+- 'print("---")'
+- 'print(response.text[:500])'
+
+When you run this in Ghostty, this makes your computer reach out across the internet, ask a server for a webpage, and read the response. 
+
+This is what 'requests.get()' is doing.
+
 
 
 ## What does a virtrual environment do and why does it exist?
