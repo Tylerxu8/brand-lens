@@ -73,4 +73,21 @@ When writing the script, write it in increments to get one part working before a
 
 In 'fetch_many.py' below the plan,
 
+- 'with open("urls.txt") as f:'
+- 	'urls = [line.strip() for line in f if line.strip()]'
+
+- 'print(f"loaded {len(urls)} urls")'
+- 'for url in urls:'
+- 	'print(" -", url)'
+
+When you run this script a count and the URLs are listed.
+
+The:
+
+- 'line.strip()' removes the trailing newlines and spaces.
+
+- 'if line.strip()' skips blank lines.
+
+- 'f"..."' is an f string - pythons way of inserting variables into text
+
 
