@@ -67,3 +67,10 @@ I put about 7 urls and one that didn't work.
 
 To view the file, you can run 'cat urls.txt' which will list everything in that file
 
+# Now building the script
+
+When writing the script, write it in increments to get one part working before adding more parts to the code.
+
+In 'fetch_many.py' below the plan,
+
+
