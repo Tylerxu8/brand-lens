@@ -9,6 +9,10 @@
 
 I learned the real difference between 'response.text' and 'soup.title.string'. 
 
+## What I don't fully understand
+
+
+
 ## Claude check-in
 
 - The thing I got wrong was 'soup.title.string'. It is actually the meaningful data that is extracted using Beautiful Soup
