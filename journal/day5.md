@@ -7,11 +7,31 @@
 
 ## What I learned
 
-I learned the real difference between 'response.text' and 'soup.title.string'. 
+I learned the real difference between 'response.text' and 'soup.title.string'. I also learned what 'with' is actually doing. It is making sure that closing part of the file happens even if something goes wrong. 
 
 ## What I don't fully understand
 
+- 'urls = [line.strip() for line in f if line.strip()]'
 
+At first, I didn't fully understand what this line was doing but I asked Claude to explain and I understand now.
+
+I asked Claude what 'urls = [line.strip() for line in f if line.strip()]' does and it explained more in detail so I can understand better.
+
+So 'urls = [line.strip() for line in f if line.strip()]' is called a List Comprehension.
+
+A List Comprehension is a compact way to built a list.
+
+'line.strip()'
+
+'.strip()' removes spaces, tabs, and invisible newline characters (\n). This is what is actually getting added to the list (urls = []) but a cleaned up version. 
+
+'for line in f' 
+
+This loops the life 'f' one line at a time. 'f' is the urls.txt that has the list of URLs. If your file has 10 URLs, this loop will run 10 times. Each line of the file becomes the variable 'line' including the invisible new line character (\n)
+
+'if line.strip()'
+
+This is a filter. Its saying to only keep this line if, after stripping, it isn't empty.
 
 ## Claude check-in
 
@@ -45,29 +65,14 @@ and
 
 BeautifulSoup is a tool installed into the terminal and its whole job is to be a translator turning the long HTML line into something readable.
 
-## Asking Claude to explain lines of code
+## Asking Claude to explain line of code
 
 I asked Claude what 'with open("urls.txt") as f:' does and it explained it more in detial for me to understand better.
 
 So 'open("urls.txt")' is telling python a the file called 'urls.txt'.
 
-'as f' is giving the file a name "f" so that python knows you mean "that open file"
+'as f:' is giving the file a name "f". So when you write 'f' in your code, python knows you mean "that open file"
 
-I asked Claude what 'urls = [line.strip() for line in f if line.strip()]' does and it explained more in detail so I can understand better.
+'with' is called the context manager and its job is to handle the setup and cleanup automatically.
 
-So 'urls = [line.strip() for line in f if line.strip()]' is called a List Comprehension.
-
-A List Comprehension is a compact way to built a list.
-
-'line.strip()'
-
-'.strip()' removes spaces, tabs, and invisible newline characters (\n). This is what is actually getting added to the list (urls = []) but a cleaned up version. 
-
-'for line in f' 
-
-This loops the life 'f' one line at a time. 'f' is the urls.txt that has the list of URLs. If your file has 10 URLs, this loop will run 10 times. Each line of the file becomes the variable 'line' including the invisible new line character (\n)
-
-'if line.strip()'
-
-This is a filter. Its saying to only keep this line if, after stripping, it isn't empty.
-
+I asked Claude to explain more on 'with' and it broke it down by saying that 'with' is making sure that when python opens a file, the closing part happens even if there is a failure.
