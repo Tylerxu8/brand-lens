@@ -20,11 +20,11 @@ These are functions:
  I then I refactored my `fetch_many.py` file so that the `for` loop is now 4 lines of intent/readable.
 
 
- # What I learned
+# What I learned
 
- I learned what Dictionarys are and what they do. A dict maps keys to values. 
+I learned what Dictionarys are and what they do. A dict maps keys to values. 
 
- For example:
+## For example:
 
  ```python
  brand = {
