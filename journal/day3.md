@@ -6,6 +6,10 @@ First I set up a Virtual environment which is a "per project" sandbox for python
 
 I also fetched my first webpage and learned how to extract the title using BeautifulSoup which was pretty cool.
 
+# What I don't fully understand
+
+- 'soup = BeautifulSoup(response.text, "html.parser")'
+
 
 ## What does a virtrual environment do and why does it exist?
 A virtual environment exists because installing a bunch of libraries onto your computer takes up a lot of space and is a mess so creating a virtual environment helps manage your projects.
