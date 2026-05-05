@@ -31,7 +31,7 @@ def fetch_one(url):
         record["error"] = str(e)
     return record
 
-with open("urls.txt") as f:
+with open("urls.txt") as f: 
 	urls = [line.strip() for line in f if line.strip()]
 
 print(f"loaded {len(urls)} urls")
@@ -51,5 +51,5 @@ with open("results.json", "w") as f:
         f.write(json.dumps(r) + "\n")
 
 successes = sum(1 for r in results if not r["error"])
-failure = len(results) - successes
-print(f"\ndone. {successes} succeeded, {failure} failed.")
+failures = len(results) - successes
+print(f"\nbingo. {successes} succeeded, {failures} failed.")
