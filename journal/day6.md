@@ -39,7 +39,7 @@ The dictionary is created using `{}` and `""`, the key in the second line is `"n
 # What I fully don't understand
 
 ```python
- successes = sum(1 for r in results if not r["error"])
+successes = sum(1 for r in results if not r["error"])
 failure = len(results) - successes
 print(f"\ndone. {successes} succeeded, {failure} failed.")
 ```
