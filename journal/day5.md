@@ -75,4 +75,4 @@ So 'open("urls.txt")' is telling python a the file called 'urls.txt'.
 
 'with' is called the context manager and its job is to handle the setup and cleanup automatically.
 
-I asked Claude to explain more on 'with' and it broke it down by saying that 'with' is making sure that when python opens a file, the closing part happens even if there is a failure.
+I asked Claude to explain more on 'with' and it broke it down by saying that 'with' is making sure that when python opens a file, the closing part happens even if there is a failure. 
