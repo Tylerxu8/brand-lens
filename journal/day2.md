@@ -1,4 +1,4 @@
-# Day 2
+# Week 1 Day 2
 
 ## What I did today
 First I installed this tool called Homebrew.
