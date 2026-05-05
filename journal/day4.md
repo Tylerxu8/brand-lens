@@ -1,5 +1,45 @@
 # Day 4
 
+
+# What's the difference between a list and a string? Give an example
+
+So a list is a collection of items that can be different types of data like names and numbers.
+
+A string is a sequence of characters to store textual data. 
+
+## Example:
+
+- String: name = "hello world" 
+
+- List: my_list = [1, "hello", 4.20, false]
+
+# What's one thing you wrote today that you don't fully understand?
+
+'try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.text, "html.parser")
+        title = soup.title.string if soup.title else "(no title)"
+        record["status"] = response.status_code
+        record["title"] = title.strip()
+        record["error"] = None
+        successes += 1
+        print(f"  -> {title.strip()}")
+    except Exception as e:
+        record["status"] = None
+        record["title"] = None
+        record["error"] = str(e)
+        failure += 1
+        print(f"  -> FAILED: {e}")
+    results.append(record)'
+
+# What does try/except do and why did my script need it
+
+So try/except is a defense code to handle errors if there are any. My script needed it because I had a URL in my .txt file that didn't exist.
+
+# How does today's script relate to the eventual capstone (a brand research tool)?
+
+Today's script is very important in brand research because it will help fetch multiple data entries from multiple URLs.
+
 # What I did
 
 First I started by creating a scratch file to mess around in
