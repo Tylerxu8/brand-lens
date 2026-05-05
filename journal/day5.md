@@ -47,44 +47,49 @@ This is a filter. Its saying to only keep this line if, after stripping, it isn'
 
 ## Claude check-in
 
-- The thing I got wrong was 'soup.title.string'. It is actually the meaningful data that is extracted using Beautiful Soup
+- The thing I got wrong was `soup.title.string`. It is actually the meaningful data that is extracted using Beautiful Soup
 
-- So I asked Claude to explain 'urls = [line.strip() for line in f if line.strip()]' and I didn't need to ask any follow up questions.
+- So I asked Claude to explain `urls = [line.strip() for line in f if line.strip()]` and I didn't need to ask any follow up questions.
 
-- I also asked Claude to explain 'with open("urls.txt") as f:' and it explained it well but I had to follow it up with asking to explain more on 'with'
+- I also asked Claude to explain `with open("urls.txt") as f:` and it explained it well but I had to follow it up with asking to explain more on `with`
 
-- What 'with' is doing is making sure the "closing" part always happens even if something goes wrong.
+- What `with` is doing is making sure the "closing" part always happens even if something goes wrong.
 
-## What's the difference between 'response.text' and 'soup.title.string'?
+## What's the difference between `response.text` and `soup.title.string`?
 
 Going back to Week 1 day 3 (fetch_many.py), I was asked to answer this quetions.
 
 My response was: 
 
-'response.text' shows the actual title
+`response.text` shows the actual title
 
 and 
 
-'soup.title.string' is a defense code because some pages don't have titles so without the guard, the script will crash.
+`soup.title.string` is a defense code because some pages don't have titles so without the guard, the script will crash.
 
 After asking Claude what it acutally means, I fixed my answer.
 
-'response.text' is showing the raw data of the webpage of what the server sent. 
+`response.text` is showing the raw data of the webpage of what the server sent. 
 
 and
 
-'soup.title.string' is the meaningful data that is pulled out of the HTML after BeautifulSoup read through the raw data (response.text). So 'soup.title' finds the title within the HTML and '.string' pulls out that plain text with no tags or brackets.
+`soup.title.string` is the meaningful data that is pulled out of the HTML after BeautifulSoup read through the raw data (response.text). So `soup.title` finds the title within the HTML and `.string` pulls out that plain text with no tags or brackets.
 
-BeautifulSoup is a tool installed into the terminal and its whole job is to be a translator turning the long HTML line into something readable.
+`BeautifulSoup` is a tool installed into the terminal and its whole job is to be a translator turning the long HTML line into something readable.
 
 ## Asking Claude to explain line of code
 
-I asked Claude what 'with open("urls.txt") as f:' does and it explained it more in detial for me to understand better.
+I asked Claude what
 
-So 'open("urls.txt")' is telling python a the file called 'urls.txt'.
+```python
+with open("urls.txt") as f:
+```
+does and it explained it more in detial for me to understand better.
 
-'as f:' is giving the file a name "f". So when you write 'f' in your code, python knows you mean "that open file"
+So `open("urls.txt")` is telling python a the file called `urls.txt`.
 
-'with' is called the context manager and its job is to handle the setup and cleanup automatically.
+`as f:` is giving the file a name "f". So when you write `f` in your code, python knows you mean "that open file"
 
-I asked Claude to explain more on 'with' and it broke it down by saying that 'with' is making sure that when python opens a file, the closing part happens even if there is a failure. 
+`with` is called the context manager and its job is to handle the setup and cleanup automatically.
+
+I asked Claude to explain more on `with` and it broke it down by saying that `with` is making sure that when python opens a file, the closing part happens even if there is a failure. 
