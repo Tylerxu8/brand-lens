@@ -46,7 +46,7 @@ try:
 
 # What does try/except do and why did my script need it
 
-So try/except is a defense code to handle errors if there are any. My script needed it because I had a URL in my .txt file that didn't exist.
+So try/except is a defense code to handle errors if there are any. My script needed it because I had a URL in my .txt file that didn't exist. So without it, my whole script would crash, but with it, it will just log it as an error.
 
 # How does today's script relate to the eventual capstone (a brand research tool)?
 
