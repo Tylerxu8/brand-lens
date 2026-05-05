@@ -13,41 +13,43 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import json
 
+
+def fetch_one(url):
+    record = {
+        "url": url,
+        "fetched_at": datetime.now().isoformat(),
+        "status": None,
+        "title": None,
+        "error": None,
+    }
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.text, "html.parser")
+        record["status"] = response.status_code
+        record["title"] = soup.title.string.strip() if soup.title else "(no title)"
+    except Exception as e:
+        record["error"] = str(e)
+    return record
+
 with open("urls.txt") as f:
 	urls = [line.strip() for line in f if line.strip()]
 
 print(f"loaded {len(urls)} urls")
 
 results = []
-successes = 0
-failure = 0
-
 for url in urls:
     print(f"fetching {url}...")
-    record = {
-        "url": url,
-        "fetched_at": datetime.now().isoformat(),
-    }
-    try:
-        response = requests.get(url, timeout=10)
-        soup = BeautifulSoup(response.text, "html.parser")
-        title = soup.title.string if soup.title else "(no title)"
-        record["status"] = response.status_code
-        record["title"] = title.strip()
-        record["error"] = None
-        successes += 1
-        print(f"  -> {title.strip()}")
-    except Exception as e:
-        record["status"] = None
-        record["title"] = None
-        record["error"] = str(e)
-        failure += 1
-        print(f"  -> FAILED: {e}")
+    record = fetch_one(url)
+    if record["error"]:
+        print(f"  -> FAILED: {record['error']}")
+    else:
+        print(f"  -> {record['title']}")
     results.append(record)
 
 with open("results.json", "w") as f:
     for r in results:
         f.write(json.dumps(r) + "\n")
 
+successes = sum(1 for r in results if not r["error"])
+failure = len(results) - successes
 print(f"\ndone. {successes} succeeded, {failure} failed.")
-print(f"results saved to results.json")
