@@ -14,9 +14,14 @@ A string is a sequence of characters to store textual data.
 
 ## Example:
 
-- String: name = "hello world" 
-
-- List: my_list = [1, "hello", 4.20, false]
+- String: 
+```python
+name = "hello world" 
+```
+- List: 
+```python
+my_list = [1, "hello", 4.20, false]
+```
 
 # What's one thing you wrote today that you don't fully understand?
 
