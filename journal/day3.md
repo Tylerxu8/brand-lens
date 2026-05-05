@@ -75,7 +75,7 @@ This is what 'requests.get()' is doing.
 A virtual environment exists because installing a bunch of libraries onto your computer takes up a lot of space and is a mess so creating a virtual environment helps manage your projects.
 
 ## What happens when you run 'requests.get(url)'?
-To my knowledge, this is what shows as the response when it retrives the URL.
+To my knowledge, this is asking to get the url from the request library 
 
 ## What's the difference between 'response.text' and 'soup.title.string'?
 'response.text' shows the actual title
@@ -83,3 +83,10 @@ To my knowledge, this is what shows as the response when it retrives the URL.
 and 
 
 'soup.title.string' is a defense code because some pages don't have titles so without the guard, the script will crash.
+
+## Name the line from 'fetch.py' and what part you can't explain
+
+- 'with open("result.json", "a") as f:
+	f.write(json.dumps(result) + "\n")'
+
+This is what I couldn't write from scratch and I don't really understand what the second line.
