@@ -1,4 +1,4 @@
-# Day 1 
+# Week 1 day 1
 
 ## What I did
 I learned short cuts like:
