@@ -1,7 +1,7 @@
 # Week 2 Day 6
 
 
-## What I did today
+# What I did today
 
 These are functions:
 
@@ -20,7 +20,7 @@ These are functions:
  I then I refactored my `fetch_many.py` file so that the `for` loop is now 4 lines of intent/readable.
 
 
- ## What I learned
+ # What I learned
 
  I learned what Dictionarys are and what they do. A dict maps keys to values. 
 
@@ -36,7 +36,7 @@ These are functions:
 The dictionary is created using `{}` and `""`, the key in the second line is `"name"` and the value is `"Nike"`. For integers you do not need `""` because if you put an integer in `""` it is telling python to treat whatevers inside those quotes as a text instead of actual numbers. 
 
 
-## What I fully don't understand
+# What I fully don't understand
 
 ```python
  successes = sum(1 for r in results if not r["error"])
@@ -51,7 +51,7 @@ with open("results.json", "w") as f:
 ```
 
 
-### Claude Check-in
+# Claude Check-in
 
 I asked Claude to see if my explanation to "what a dicationary was" correct or not. It explained it very well and I also learned something from it. Dictionarys are created not with just `{}` but also using `""` for the keys and values.
 
@@ -69,6 +69,6 @@ For example:
 I also asked claude what it means to refactor something and it means to rewrite the code to be cleaner or better organized without changing what that code actually does.
 
 
-## If a friend asked you "what's the difference between a list and a dict? - answer in 2 sentences, no AI."
+# If a friend asked you "what's the difference between a list and a dict? - answer in 2 sentences, no AI."
 
 The difference between a list and a dict is that a list is a collection of itmes that can be different types of data like names and numbers. A dict is what maps a key to values. So a list is made by using `[]` and a dict is made by using `{}` and `"key" : "value"`.
