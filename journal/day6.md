@@ -27,11 +27,11 @@ I learned what Dictionarys are and what they do. A dict maps keys to values.
 ## For example:
 
  ```python
- brand = {
+brand = {
  	"name" : "Nike",
  	"founded": 1972,
  	"country" : "USA"
- }
+}
 ```
 The dictionary is created using `{}` and `""`, the key in the second line is `"name"` and the value is `"Nike"`. For integers you do not need `""` because if you put an integer in `""` it is telling python to treat whatevers inside those quotes as a text instead of actual numbers. 
 
