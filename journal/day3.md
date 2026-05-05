@@ -1,4 +1,4 @@
-# Day 3
+# Week 1 day 3
 
 # What I did today
 
