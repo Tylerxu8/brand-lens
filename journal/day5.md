@@ -1,15 +1,15 @@
 # Week 2 Day 5 
 
-## What I did
+# What I did
 
 - I fixed any errors from Week 1 days 3 and 4
 - I asked Claude to break down and explain what each line of code does
 
-## What I learned
+# What I learned
 
 I learned the real difference between `response.text` and `soup.title.string`. I also learned what `with` is actually doing. It is making sure that closing part of the file happens even if something goes wrong. 
 
-## What I don't fully understand
+# What I don't fully understand
 
 ```python
 urls = [line.strip() for line in f if line.strip()]
@@ -45,7 +45,7 @@ if line.strip()
 
 This is a filter. Its saying to only keep this line if, after stripping, it isn't empty.
 
-## Claude check-in
+# Claude check-in
 
 - The thing I got wrong was `soup.title.string`. It is actually the meaningful data that is extracted using Beautiful Soup
 
@@ -55,7 +55,7 @@ This is a filter. Its saying to only keep this line if, after stripping, it isn'
 
 - What `with` is doing is making sure the "closing" part always happens even if something goes wrong.
 
-## What's the difference between `response.text` and `soup.title.string`?
+# What's the difference between `response.text` and `soup.title.string`?
 
 Going back to Week 1 day 3 (fetch_many.py), I was asked to answer this quetions.
 
@@ -77,7 +77,7 @@ and
 
 `BeautifulSoup` is a tool installed into the terminal and its whole job is to be a translator turning the long HTML line into something readable.
 
-## Asking Claude to explain line of code
+# Asking Claude to explain line of code
 
 I asked Claude what
 
