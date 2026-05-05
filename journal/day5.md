@@ -7,29 +7,41 @@
 
 ## What I learned
 
-I learned the real difference between 'response.text' and 'soup.title.string'. I also learned what 'with' is actually doing. It is making sure that closing part of the file happens even if something goes wrong. 
+I learned the real difference between `response.text` and `soup.title.string`. I also learned what `with` is actually doing. It is making sure that closing part of the file happens even if something goes wrong. 
 
 ## What I don't fully understand
 
-- 'urls = [line.strip() for line in f if line.strip()]'
+```python
+urls = [line.strip() for line in f if line.strip()]
+```
 
 At first, I didn't fully understand what this line was doing but I asked Claude to explain and I understand now.
 
-I asked Claude what 'urls = [line.strip() for line in f if line.strip()]' does and it explained more in detail so I can understand better.
+I asked Claude what `urls = [line.strip() for line in f if line.strip()]` does and it explained more in detail so I can understand better.
 
-So 'urls = [line.strip() for line in f if line.strip()]' is called a List Comprehension.
+So 
+```python
+urls = [line.strip() for line in f if line.strip()]
+```
+is called a List Comprehension. 
 
 A List Comprehension is a compact way to built a list.
 
-'line.strip()'
+```python
+line.strip()
+```
 
-'.strip()' removes spaces, tabs, and invisible newline characters (\n). This is what is actually getting added to the list (urls = []) but a cleaned up version. 
+`.strip()` removes spaces, tabs, and invisible newline characters `(\n)`. This is what is actually getting added to the list (urls = []) but a cleaned up version. 
 
-'for line in f' 
+```python
+for line in f
+``` 
 
-This loops the life 'f' one line at a time. 'f' is the urls.txt that has the list of URLs. If your file has 10 URLs, this loop will run 10 times. Each line of the file becomes the variable 'line' including the invisible new line character (\n)
+This loops the line `f` one line at a time. `f` is the urls.txt that has the list of URLs. If your file has 10 URLs, this loop will run 10 times. Each line of the file becomes the variable `line` including the invisible new line character `(\n)`.
 
-'if line.strip()'
+```python
+if line.strip()
+```
 
 This is a filter. Its saying to only keep this line if, after stripping, it isn't empty.
 
