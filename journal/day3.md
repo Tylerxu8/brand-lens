@@ -1,74 +1,10 @@
 # Day 3
 
 # What I did today
-We first set up a Virtual Environment
 
-- 'cd ~/dev/brand-lens'
-- 'python3 -m venv venv'
-- 'ls'
+First I set up a Virtual environment which is a "per project" sandbox for python packages. Then , I created a .gitignore file to contain the /vnev file so git doesn't track it. After, I installed my first package which was requests using pip.
 
-This created a 'vevn/' folder which is the sandbox within dev/brand-lens
-
-To use the sandbox you have to activate it:
-
-- 'dev/brand-lens'
-- 'source venv/bin/activate'
-
-Now the prompt should start with (venv). To leave the sandbox, type deactivate.
-
-Always activate this before working on a project. 
-
-To no have git track the venv/ folder, we created a .gitignore file
-
-## In Ghostty
-
-- 'touch .gitignore'
-- 'open -a "Sublime Text" .gitignore'
-
-## In Sublime
-
-- 'venv/'
-- '__pychace__/'
-- '*.pyc'
-- '.DS_Store'
-
-## Back in Ghostty
-
-Commit "Add gitignore"
-
-## Installing first package
-While venv is still active:
-
-- 'pip install requests'
-- 'pip list'
-
-'pip' is pythons package installer
-'request' is the library for making HTTP calls in python, it is what most python programs use to fetch web pages or call APIs
-
-- 'pip list' shows whats installed in venv
-
-## Fetching my first webpage
-
-Create a new file: fetch.py
-
-- 'touch fetch.py'
-- 'open -a "Sublime Text" fetch.py'
-
-## In Sublime
-
-- 'import requests'
-
-- 'url = "https://example.com"'
-- 'response = requests.get(url)'
-
-- 'print("status code:", response.status_code)'
-- 'print("---")'
-- 'print(response.text[:500])'
-
-When you run this in Ghostty, this makes your computer reach out across the internet, ask a server for a webpage, and read the response. 
-
-This is what 'requests.get()' is doing.
-
+I also fetched my first webpage and learned how to extract the title using BeautifulSoup which was pretty cool.
 
 
 ## What does a virtrual environment do and why does it exist?
