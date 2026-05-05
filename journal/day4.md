@@ -15,7 +15,8 @@ A string is a sequence of characters to store textual data.
 
 # What's one thing you wrote today that you don't fully understand?
 
-'try:
+```python
+try:
         response = requests.get(url, timeout=10)
         soup = BeautifulSoup(response.text, "html.parser")
         title = soup.title.string if soup.title else "(no title)"
@@ -30,7 +31,8 @@ A string is a sequence of characters to store textual data.
         record["error"] = str(e)
         failure += 1
         print(f"  -> FAILED: {e}")
-    results.append(record)'
+    results.append(record)
+```
 
 # What does try/except do and why did my script need it
 
