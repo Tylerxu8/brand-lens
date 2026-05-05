@@ -45,14 +45,9 @@ print(f"\ndone. {successes} succeeded, {failure} failed.")
 ```
 
 ```python
-def fetch_one(url):
-    record = {
-        "url": url,
-        "fetched_at": datetime.now().isoformat(),
-        "status": None,
-        "title": None,
-        "error": None,
-    }
+with open("results.json", "w") as f:
+    for r in results:
+        f.write(json.dumps(r) + "\n")
 ```
 
 
