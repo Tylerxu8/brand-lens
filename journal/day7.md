@@ -1,4 +1,4 @@
-# Week 2 day 7
+# Week 2 day 3
 
 # Mini Quiz
 
