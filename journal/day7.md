@@ -30,18 +30,29 @@ What does this print? Why?
 
 - I think this will print an error becuase if you put an int into quotes, python will read that as a text so when you ask it to `print(x * y)` you can't do math with int and str. `*` is asking to multiply.
 
-- Edit: When I ran the code I was wrong, I thought it would return an error but what happened was the it told python to multiple [5] three times giving the answer (555) since `x = "5"` is a string, it is telling python to print 5 three times. I was right on the multiplication part so I tried making `x = 2` and the answer was (6).
+- Edit: When I ran the code I was wrong, I thought it would return an error but what happened was the it told python to repeat [5] three times giving the answer (555) since `x = "5"` is a string. I was right on the multiplication part so I tried making `x = 2` and the answer was (6).
 
 5. Why does `soup.title.string` crash on some pages but not others, and how did you guard against it on W1D3?
 
 - `soup,title.string` crashes on some pages becasue you are asking to extract the title but some pages do not have titles so to defened that I used `soup.title.string if soup.title else "(no title)"`.
 
-## What I fully don't understand
+# What I fully don't understand
 
 I understand the layers for the web but I am still fuzzy on the TLS part. It says that this is where the encryption get negotiated but I don't fully understand what that means.
 
+# Claude check-in
 
-## How my mental model changed
+I asked claude to explain why 
+
+```python
+x = "5"
+y = 3
+print(x * y)
+```
+prints 555 and it is because when you use `""`, whatevers inside the quotes become a str so you are asking it to repeat that str three tims.
+
+
+# How my mental model changed
 
 At first I was confused and felt like I was falling behind a little bit because I didn't fully understand `BeautifulSoup` but after today, I feel like I have caught up a bit and feel more comfortable reading what I wrote last week in `fetch_many.py`. I know I still have a long ways to go but I've learned a lot in the last two weeks and I can see in real time of my progression.
 
