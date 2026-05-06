@@ -12,6 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import json
+# import traceback
 
 
 def fetch_one(url):
@@ -20,6 +21,10 @@ def fetch_one(url):
         "fetched_at": datetime.now().isoformat(),
         "status": None,
         "title": None,
+        "description": None,
+        "og_title": None,
+        "h1": None,
+        "canonical": None,
         "error": None,
     }
     try:
@@ -27,6 +32,14 @@ def fetch_one(url):
         soup = BeautifulSoup(response.text, "html.parser")
         record["status"] = response.status_code
         record["title"] = soup.title.string.strip() if soup.title else "(no title)"
+        desc_tag = soup.find("meta", attrs={"name": "description"})
+        record["description"] = desc_tag["content"].strip() if desc_tag and desc_tag["content"] is not None else None
+        og_tag = soup.find("meta", attrs={"property": "og:title"})
+        record["og_title"] = og_tag["content"].strip() if og_tag else None
+        canonical_tag = soup.find("link", attrs={"rel": "canonical"})
+        record["canonical"] = canonical_tag["href"] if canonical_tag else None
+        h1_tag = soup.find("h1")
+        record["h1"] = h1_tag.get_text(strip=True) if h1_tag else None
     except Exception as e:
         record["error"] = str(e)
     return record
