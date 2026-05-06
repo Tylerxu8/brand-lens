@@ -1,4 +1,4 @@
-# Week 2 Day 6
+# Week 2 Day 2
 
 
 # What I did today
