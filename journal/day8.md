@@ -2,11 +2,17 @@
 
 # What I did
 
-I looked up a website and viewed the page source to take a peek at the whole HTML. I then worked on my `fetch_many.py` file to extract certain data from my URLs like the description, og title and, the canonical URL. I didn't really understand what I was doing in the beginning but after seeing the results in `results.json` it became more clear as to why I was retriving specific information.
+I looked up a website and viewed the page source to take a peek at the whole HTML. 
+
+I then worked on my `fetch_many.py` file to extract certain data from my URLs like the description, og title and, the canonical URL. 
+
+I didn't really understand what I was doing in the beginning but after seeing the results in `results.json` it became more clear as to why I was retriving specific information.
 
 # What I learned
 
-I learned how retrieve the meta description, og title, canonical URL, and the h1 tag. All these information can be seen by viewing the page source on a website and I learned how to extract each piece of information to better understand that data.
+I learned how retrieve the meta description, og title, canonical URL, and the h1 tag. 
+
+All these information can be seen by viewing the page source on a website and I learned how to extract each piece of information to better understand that data.
 
 # What I fully don't understand
 
