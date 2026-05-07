@@ -12,6 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import json
+import csv
 # import traceback
 
 
@@ -62,6 +63,19 @@ for url in urls:
 with open("results.json", "w") as f:
     for r in results:
         f.write(json.dumps(r) + "\n")
+
+def save_csv(records, filename):
+    if not records:
+        return
+    keys = list(records[0].keys())
+    with open(filename, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=keys)
+        writer.writeheader()
+        for r in records:
+            writer.writerow(r)
+
+results.sort(key=lambda r: (r["error"] is not None, (r["title"] or "").lower()))
+save_csv(results, "results.csv")
 
 successes = sum(1 for r in results if not r["error"])
 failures = len(results) - successes
