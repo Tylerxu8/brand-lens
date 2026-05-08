@@ -60,7 +60,7 @@ for url in urls:
         print(f"  -> {record['title']}")
     results.append(record)
 
-with open("results.json", "w") as f:
+with open("results.json", "w") as f:  ## "w" wipes the file and writes fresh
     for r in results:
         f.write(json.dumps(r) + "\n")
 
