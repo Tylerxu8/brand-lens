@@ -8,6 +8,7 @@
 # Write all results to results.json (one JSON object per line)
 # Print a short summary at the end: how many succeeded, how many failed
 
+import yaml
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -45,38 +46,31 @@ def fetch_one(url):
         record["error"] = str(e)
     return record
 
-with open("urls.txt") as f: 
-	urls = [line.strip() for line in f if line.strip()]
+with open("brands.yaml") as f:
+    config = yaml.safe_load(f)
 
-print(f"loaded {len(urls)} urls")
+brand_results = {}
+for slug, brand in config["brands"].items():
+    print(f"\n=== {brand['name']} ===")
+    pages = []
+    for url in brand["pages"]:
+        print(f"   fetching {url}...")
+        record = fetch_one(url)
+        if record["error"]:
+            print(f"   -> FAILED: {record['error']}")
+        else:
+            print(f"   -> {record['title']}")
+        pages.append([record])
+    brand_results[slug] = {
+        "name": brand["name"],
+        "country": brand["country"],
+        "pages": pages,
+    }
 
-results = []
-for url in urls:
-    print(f"fetching {url}...")
-    record = fetch_one(url)
-    if record["error"]:
-        print(f"  -> FAILED: {record['error']}")
-    else:
-        print(f"  -> {record['title']}")
-    results.append(record)
+with open("results.json", "w") as f:
+    json.dump(brand_results, f, indent=2)
 
-with open("results.json", "w") as f:  ## "w" wipes the file and writes fresh
-    for r in results:
-        f.write(json.dumps(r) + "\n")
 
-def save_csv(records, filename):
-    if not records:
-        return
-    keys = list(records[0].keys())
-    with open(filename, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=keys)
-        writer.writeheader()
-        for r in records:
-            writer.writerow(r)
-
-results.sort(key=lambda r: (r["error"] is not None, (r["title"] or "").lower()))
-save_csv(results, "results.csv")
-
-successes = sum(1 for r in results if not r["error"])
-failures = len(results) - successes
-print(f"\nbingo. {successes} succeeded, {failures} failed.")
+total_pages = sum(len(b["pages"]) for b in brand_results.values())
+total_errors = sum(1 for b in brand_results.values() for p in b ["pages"] if p["error"])
+print(f"\ndone. {len(brand_results)} brands, {total_pages} pages, {total_errors} errors.")
