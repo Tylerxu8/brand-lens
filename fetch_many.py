@@ -60,7 +60,7 @@ for slug, brand in config["brands"].items():
             print(f"   -> FAILED: {record['error']}")
         else:
             print(f"   -> {record['title']}")
-        pages.append([record])
+        pages.append(record)
     brand_results[slug] = {
         "name": brand["name"],
         "country": brand["country"],
@@ -72,5 +72,5 @@ with open("results.json", "w") as f:
 
 
 total_pages = sum(len(b["pages"]) for b in brand_results.values())
-total_errors = sum(1 for b in brand_results.values() for p in b ["pages"] if p["error"])
+total_errors = sum(1 for b in brand_results.values() for p in b["pages"] if p["error"])
 print(f"\ndone. {len(brand_results)} brands, {total_pages} pages, {total_errors} errors.")

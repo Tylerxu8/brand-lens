@@ -1,14 +1,14 @@
-brands:  # This is a Dictionary
-  innisfree:     
+brands:
+  innisfree:
     name: Innisfree
     country: South Korea
     pages:
-      - https://www.innisfree.com    # - starts a list item
+      - https://www.innisfree.com
       - https://us.innisfree.com
   laniege:
     name: Laneige
     country: South Korea
-    pages: 
+    pages:
       - https://www.laneige.com
       - https://us.laneige.com
   cosrx:
