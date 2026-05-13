@@ -23,7 +23,7 @@ def process_url(url):
 	return record
 
 def main():
-	parser = argparse.ArgumentParser(description="Fetch brand pages and produce a structured reort.")
+	parser = argparse.ArgumentParser(description="Fetch brand pages and produce a structured report.")
 	parser.add_argument("--input", "-i", default="brands.yaml", help="Path to brands YAML config")
 	parser.add_argument("--output", "-o", default="results.json", help="Path to output JSON file")
 	parser.add_argument("--limit", "-n", type=int, default=None, help="Only process the first N brands")
