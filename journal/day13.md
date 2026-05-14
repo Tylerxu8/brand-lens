@@ -14,7 +14,7 @@ Today, I learned what argparse is and what its for. Argparse lets you pass value
 
 I still don't fully understand this section. I understand what I can do with argparse and I kind of understand the structure but I am still fuzy on why it is being used and when I will use it.
 
-# Claude check-in
+# Claude check-in 
 
 I asked claude to break this down for me and explain bit by bit:
 
