@@ -29,12 +29,20 @@ def main():
 	parser.add_argument("--limit", "-n", type=int, default=None, help="Only process the first N brands")
 	parser.add_argument("--verbose", "-v", action="store_true", help="Print each page record as it's processed")
 	parser.add_argument("--csv", help="Also writes a flat per-page CSV to this path")
+	parser.add_argument("--brand", help="Only fetch pages for this brand slug")
 	args = parser.parse_args()
 
 	with open(args.input) as f:
 		config = yaml.safe_load(f)
 
 	brand_items = list(config["brands"].items())
+
+	if args.brand is not None:
+		if args.brand not in config["brands"]:
+			print(f"error: brand '{args.brand}' not found in {args.input}")
+			raise SystemExit(1)
+		brand_items = [(args.brand, config["brands"][args.brand])]
+
 	if args.limit is not None:
 		brand_items = brand_items[: args.limit]
 
