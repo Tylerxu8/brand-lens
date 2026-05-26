@@ -11,3 +11,5 @@ def test_parse_page_extracts_title():
 	"""
 	record = parse_page(html, "https://example.com/")
 	assert record["title"] == "Hello World"
+
+	
