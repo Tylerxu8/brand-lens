@@ -5,3 +5,5 @@ __pycache__/
 results.json
 result.json
 results.csv
+test-output.py
+test.csv
