@@ -29,3 +29,4 @@ def test_fetch_one_passes_through_non_200_status(monkeypatch):
 	assert status == 404
 	assert html == "<html><body>not found</body></html>"
 	assert error is None
+	
