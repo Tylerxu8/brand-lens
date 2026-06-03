@@ -16,3 +16,33 @@ brands:
     country: South Korea
     pages:
       - https://www.cosrx.com
+  nike:
+    name: Nike
+    country: United States of America
+    pages:
+      - https://www.nike.com
+  apple:
+    name: Apple
+    country: United States of America
+    pages:
+      - https://www.apple.com/
+  bestbuy:
+    name: BestBuy
+    country: United States of America
+    pages:
+      - https://www.bestbuy.com/
+  microsoft:
+    name: Microsoft
+    country: United States of America
+    pages:
+      - https://www.microsoft.com
+  yeti:
+    name: Yeti
+    country: United States of America
+    pages:
+      - https://www.yeti.com/
+  hydroflask:
+    name: Hydroflask
+    country: United States of America
+    pages:
+      - https://www.hydroflask.com/
