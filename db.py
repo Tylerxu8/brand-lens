@@ -4,42 +4,35 @@ DB_PATH = "brand_lens.db"
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS brands (
-	slug TEXT PRIMARY KEY,
-	name TEXT
+    slug TEXT PRIMARY KEY,
+    name TEXT
 );
 
 CREATE TABLE IF NOT EXISTS pages (
-	id			INTEGER PRIMARY KEY,
-	brand_slug	TEXT NOT NULL REFERENCES brands(slug),
-	url			TEXT NOT NULL UNIQUE,
-	status		INTEGER,
-	title		TEXT,
-	description	TEXT,
-	og_title	TEXT,
-	h1			TEXT,
-	canonical	TEXT,
-	error		TEXT,
-	fetched_at	TEXT NOT NULL
+    id          INTEGER PRIMARY KEY,
+    brand_slug  TEXT NOT NULL REFERENCES brands(slug),
+    url         TEXT NOT NULL UNIQUE,
+    status      INTEGER,
+    title       TEXT,
+    description TEXT,
+    og_title    TEXT,
+    h1          TEXT,
+    canonical   TEXT,
+    error       TEXT,
+    fetched_at  TEXT NOT NULL
 );
 """
 
+
 def get_connection(db_path=DB_PATH):
-	return sqlite3.connect(db_path)
+    return sqlite3.connect(db_path)
 
 
 def init_db(db_path=DB_PATH):
-	conn = get_connection(db_path)
-	conn.executescript(SCHEMA)
-	conn.commit()
-	conn.close()
-
-
-def insert_brand(conn, slug, name):
-	conn.execute(
-		"INSERT OR IGNORE INTO brands (slug, name) VALUES (?, ?)",
-		(slug, name),
-	)
-
+    conn = get_connection(db_path)
+    conn.executescript(SCHEMA)
+    conn.commit()
+    conn.close()
 
 def insert_brand(conn, slug, name):
     conn.execute(
@@ -51,7 +44,7 @@ def insert_brand(conn, slug, name):
 def insert_page(conn, brand_slug, record):
     conn.execute(
         """
-        INSERT INTO pages
+        INSERT OR REPLACE INTO pages
             (brand_slug, url, status, title, description,
              og_title, h1, canonical, error, fetched_at)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
