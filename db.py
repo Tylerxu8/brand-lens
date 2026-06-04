@@ -62,3 +62,10 @@ def insert_page(conn, brand_slug, record):
             record.get("fetched_at"),
         ),
     )
+
+def pages_for_brand(conn, brand_slug):
+    cursor = conn.execute(
+        "SELECT url, title, status FROM pages WHERE brand_slug = ?",
+        (brand_slug,),
+    )
+    return cursor.fetchall()
