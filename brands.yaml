@@ -21,6 +21,7 @@ brands:
     country: United States of America
     pages:
       - https://www.nike.com
+      - https://www.nike.com/w/mens-clothing-6ymx6znik1
   apple:
     name: Apple
     country: United States of America
@@ -36,13 +37,14 @@ brands:
     country: United States of America
     pages:
       - https://www.microsoft.com
-  yeti:
-    name: Yeti
+  stussy:
+    name: Stussy
     country: United States of America
     pages:
-      - https://www.yeti.com/
-  hydroflask:
-    name: Hydroflask
+      - https://www.stussy.com/
+      - https://www.stussy.com/collections/new-arrivals
+  alo:
+    name: alo
     country: United States of America
-    pages:
-      - https://www.hydroflask.com/
+    pages: 
+      - https://www.aloyoga.com/
