@@ -6,6 +6,7 @@ import csv
 
 from fetch import fetch_one
 from parse import parse_page
+import db
 
 
 def process_url(url):
@@ -30,7 +31,10 @@ def main():
 	parser.add_argument("--verbose", "-v", action="store_true", help="Print each page record as it's processed")
 	parser.add_argument("--csv", help="Also writes a flat per-page CSV to this path")
 	parser.add_argument("--brand", help="Only fetch pages for this brand slug")
+	parser.add_argument("--db", default="brand_lens.db", help="Path to SQLite database")
 	args = parser.parse_args()
+
+	db.init_db(args.db)
 
 	with open(args.input) as f:
 		config = yaml.safe_load(f)
@@ -47,9 +51,11 @@ def main():
 		brand_items = brand_items[: args.limit]
 
 	brand_results = {}
+	conn = db.get_connection(args.db)
 	for slug, brand in brand_items:
 		print(f"\n=== {brand['name']} ===")
 		pages = []
+		db.insert_brand(conn, slug, brand["name"])
 		for url in brand["pages"]:
 			print(f"  fetching {url}...")
 			record = process_url(url)
@@ -60,11 +66,14 @@ def main():
 			if args.verbose:
 				print(f"   record: {record}")
 			pages.append(record)
+			db.upsert_page(conn, slug, record)
 		brand_results[slug] = {
 			"name": brand["name"],
 			"country": brand["country"],
 			"pages": pages,
 		}
+	conn.commit()
+	conn.close()
 
 	if args.csv:
 		rows = []

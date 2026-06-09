@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 
 DB_PATH = "brand_lens.db"
 
@@ -41,7 +42,7 @@ def insert_brand(conn, slug, name):
     )
 
 
-def insert_page(conn, brand_slug, record):
+def upsert_page(conn, brand_slug, record):
     conn.execute(
         """
         INSERT OR REPLACE INTO pages
@@ -59,7 +60,7 @@ def insert_page(conn, brand_slug, record):
             record.get("h1"),
             record.get("canonical"),
             record.get("error"),
-            record.get("fetched_at"),
+            record.get("fetched_at") or datetime.now().isoformat(),
         ),
     )
 

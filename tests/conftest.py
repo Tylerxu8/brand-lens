@@ -1,4 +1,6 @@
 import pytest
+import sqlite3
+import db
 
 
 @pytest.fixture
@@ -17,3 +19,10 @@ def full_page_html():
 	  </body>
 	</html>
 	"""
+
+@pytest.fixture
+def db_conn():
+	conn = sqlite3.connect(":memory:")
+	conn.executescript(db.SCHEMA)
+	yield conn
+	conn.close()
