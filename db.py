@@ -70,3 +70,15 @@ def pages_for_brand(conn, brand_slug):
         (brand_slug,),
     )
     return cursor.fetchall()
+
+
+def page_fields_for_brand(conn, brand_slug):
+    cursor = conn.execute(
+        """
+        SELECT url, title, description, og_title, h1, canonical
+        FROM pages WHERE brand_slug = ?
+        """,
+        (brand_slug,),
+    )
+    columns = [col[0] for col in cursor.description]
+    return [dict(zip(columns, row)) for row in cursor.fetchall()]
