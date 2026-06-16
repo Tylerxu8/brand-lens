@@ -39,14 +39,23 @@ def build_prompt(brand_name, pages):
 
 
 def summarize_brand(brand_name, pages):
+    """Return (summary_dict, error). On any failure, summary is None and error is a sting. Never raises."""
     prompt = build_prompt(brand_name, pages)
-    message = client.messages.create(
-        model="claude-haiku-4-5",
-        max_tokens=500,
-        system=SYSTEM,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    raw = message.content[0].text.strip()
-    if raw.startswith("```"):
-        raw = raw.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-    return json.loads(raw)
+
+    try:
+        message = client.messages.create(
+            model="claude-haiku-4-5",
+            max_tokens=500,
+            system=SYSTEM,
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception as e:
+        return None, f"api call failed: {e}"
+
+    raw = message.content[0].text
+    try:
+        summary = json.loads(raw)
+    except json.JSONDecodeError:
+        return None, f"could not parse JSON from reply: {raw[:200]}"
+
+    return summary, None

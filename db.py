@@ -1,4 +1,5 @@
 import sqlite3
+import json
 from datetime import datetime
 
 DB_PATH = "brand_lens.db"
@@ -6,7 +7,8 @@ DB_PATH = "brand_lens.db"
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS brands (
     slug TEXT PRIMARY KEY,
-    name TEXT
+    name TEXT,
+    brief TEXT
 );
 
 CREATE TABLE IF NOT EXISTS pages (
@@ -82,3 +84,11 @@ def page_fields_for_brand(conn, brand_slug):
     )
     columns = [col[0] for col in cursor.description]
     return [dict(zip(columns, row)) for row in cursor.fetchall()]
+
+
+def set_brief(conn, brand_slug, summary):
+    conn.execute(
+        "UPDATE brands SET brief = ? WHERE slug = ?",
+        (json.dumps(summary), brand_slug),
+    )
+
