@@ -8,7 +8,7 @@ def full_page_html():
 	return """
 	<html>
 	  <head>
-	    <title>Bbrand Lens</title>
+	    <title>Brand Lens</title>
 	    <meta name="description" content="A tool for evaluating brand presence">
 	    <meta property="og:title" content="Brand Lens - OG">
 	    <link rel="canonical" href="https://example.com/canonical">
