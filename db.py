@@ -1,5 +1,5 @@
-import sqlite3
 import json
+import sqlite3
 from datetime import datetime
 
 DB_PATH = "brand_lens.db"
@@ -41,6 +41,29 @@ def insert_brand(conn, slug, name):
     conn.execute(
         "INSERT OR IGNORE INTO brands (slug, name) VALUES (?, ?)",
         (slug, name),
+    )
+
+
+def insert_page(conn, brand_slug, record):
+    conn.execute(
+        """
+        INSERT INTO pages
+            (brand_slug, url, status, title, description,
+             og_title, h1, canonical, error, fetched_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            brand_slug,
+            record["url"],
+            record.get("status"),
+            record.get("title"),
+            record.get("description"),
+            record.get("og_title"),
+            record.get("h1"),
+            record.get("canonical"),
+            record.get("error"),
+            record.get("fetched_at"),
+        ),
     )
 
 
