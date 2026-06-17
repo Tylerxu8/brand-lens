@@ -5,23 +5,22 @@ brands:
     pages:
       - https://www.innisfree.com
       - https://us.innisfree.com
-  laniege:
+  laneige:
     name: Laneige
     country: South Korea
     pages:
-      - https://www.laneige.com
-      - https://us.laneige.com
+      - https://www.laneige.com/
+      - https://us.laneige.com/
   cosrx:
     name: COSRX
     country: South Korea
     pages:
-      - https://www.cosrx.com
+      - https://www.cosrx.com/
   nike:
     name: Nike
     country: United States of America
     pages:
-      - https://www.nike.com
-      - https://www.nike.com/w/mens-clothing-6ymx6znik1
+      - https://www.nike.com/
   apple:
     name: Apple
     country: United States of America
@@ -48,3 +47,13 @@ brands:
     country: United States of America
     pages: 
       - https://www.aloyoga.com/
+  musinsa:
+    name: musinsa
+    country: South Korea
+    pages:
+      - https://global.musinsa.com/us/main/fashion
+  lewkin:
+    name: lewkin
+    country: South Korea
+    pages:
+      - https://lewkin.com/
