@@ -10,7 +10,8 @@ SYSTEM = (
     "You are a brand analyst evaluating how a Korean brand presents itself "
     "to the US market, based only on data scraped from its US website. "
     "Respond with ONLY a JSON object — no markdown fences, no prose before "
-    "or after."
+    "or after. If the scraped data is absent or too thin to support a claim, "
+    "write null for that field rather than inferring or inventing a value."
 )
 
 
@@ -27,7 +28,8 @@ def build_prompt(brand_name, pages):
     lines.append(
         "Return a JSON object with these keys:\n"
         '  "value_proposition": one sentence, the brand\'s pitch as the data '
-        "suggests it (use the meta description and h1).\n"
+        "suggests it (use the meta description and h1). "
+        "If both are missing or empty across all pages, set this to null.\n"
         '  "messaging_consistency": one sentence on whether title, og:title, '
         "and h1 tell a consistent story.\n"
         '  "us_presence_signal": one sentence on what the canonical URLs '
