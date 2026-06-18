@@ -19,6 +19,10 @@ _No brief has been generated for this brand yet._
 
 ## Pages analyed
 
+{% if pages %}
 {% for page in pages %}
-- [{{ page.title or page.url }}]({{ page.url }})
+- [{{ page.title or page.url }}]({{ page.url }}){% if page.description %} - {{ page.description }}{% endif %}
 {% endfor %}
+{% else %}
+_No pages were fetched for this brand._
+{% endif %}
