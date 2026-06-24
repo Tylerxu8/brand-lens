@@ -1,0 +1,7 @@
+anthropic==0.109.0
+beautifulsoup4==4.14.3
+Jinja2==3.1.6
+pytest==9.0.3
+python-dotenv==1.2.2
+PyYAML==6.0.3
+requests==2.33.1
