@@ -1,32 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>{{ brand_name }} - US Presence Brief</title>
-</head>
-<body>
-	<p><a href="index.html">&larr; All brands</a></p>
-
-	<h1>{{ brand_name }} - US Presence Brief</h1>
-	<p><em>Generated {{ generated_at }}</em></p>
-
-	<h2>Summary</h2>
-	{% if brief %}
-	<p><strong>Value proposition:</strong> {{ brief.value_proposition }}</p>
-	<p><strong>Messaging consistency:</strong> {{ brief.messaging_consistency }}</p>
-	<p><strong>US-presence signal:</strong> {{ brief.us_presence_signal }}</p>
-	<p><strong>Confidence:</strong> {{ brief.confidence }}</p>
-	{% endif %}
-
-	<h2>Pages analyzed</h2>
-	<ul>
-	  {% for page in pages %}
-	  <li><a href="{{ page.url }}">{{ page.title or page.url }}</a></li>
-	  {% endfor %}
-	</ul>
-</body>
-</html>
-
 # {{ brand_name }} - US Presence Brief
 
 *Generated {{ generated_at }}*
