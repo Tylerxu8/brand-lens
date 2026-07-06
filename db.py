@@ -92,3 +92,9 @@ def set_brief(conn, brand_slug, summary):
         (json.dumps(summary), brand_slug),
     )
 
+def all_brands(conn):
+    """Return [{'slug': ..., 'name': ...}, ...] for every brand, name-sorted."""
+    cur = conn.execute(
+        "SELECT slug, name FROM brands ORDER BY name"
+        )
+        return [dict(row) for row in cur.fetchall()]

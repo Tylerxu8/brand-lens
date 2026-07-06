@@ -29,3 +29,8 @@ def write_brief(slug, markdown):
 	with open(path, "w", encoding="utf-8") as f:
 		f.write(markdown)
 	return path
+
+def render_index(brands, generated_at):
+	"""Render the index page listing all brands. Pure - no I/O"""
+	template = env.get_template("index.html")
+	return template.render(brands=brands, generated_at=generated_at)

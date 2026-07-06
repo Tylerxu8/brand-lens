@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Brand Lens - US Presence Briefs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Brand Lens</h1>
+  <p>US market-presence briefs, one per brand.</p>
+
+  <ul class="brand-list">
+  	{% for brand in brands %}
+  	<li><a href="{{ brand.slug }}.html">{{ brand.name }}</a></li>
+  	{% else %}
+  	<li>No brands yet.</li>
+  	{% endfor %}
+  </ul>
+
+  <p class="footer"><em>Generated {{ generated_at }}</em></p>
+</body>
+</html>
