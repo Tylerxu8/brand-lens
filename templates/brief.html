@@ -17,6 +17,8 @@
 	<p><strong>Messaging consistency:</strong> {{ brief.messaging_consistency }}</p>
 	<p><strong>US-presence signal:</strong> {{ brief.us_presence_signal }}</p>
 	<p><strong>Confidence:</strong> {{ brief.confidence }}</p>
+	{% else %}
+	<p>No brief available for this brand.</p>
 	{% endif %}
 
 	<h2>Pages analyzed</h2>

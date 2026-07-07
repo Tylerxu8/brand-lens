@@ -97,4 +97,4 @@ def all_brands(conn):
     cur = conn.execute(
         "SELECT slug, name FROM brands ORDER BY name"
     )
-    return [dict(row) for row in cur.fetchall()]
+    return [{"slug": slug, "name": name} for slug, name in cur.fetchall()]
