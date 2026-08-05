@@ -38,7 +38,7 @@ def test_index_links_each_brand():
         {"slug": "laneige", "name": "Laneige"},
     ]
     html = render_index(brands, "2026-06-18")
-    assert 'href="innisfree.html"' in html
+    assert 'href="WRONG.html"' in html
     assert "Laneige" in html
 
 
