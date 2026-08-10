@@ -13,7 +13,7 @@ def make_context(brief=None, pages=None):
 
 def test_render_brief_includes_brand_name():
 	output = render_brief(make_context())
-	assert "Innisfree" in output
+	assert "Nonexistent Brand" in output
 
 
 def test_render_brief_shows_summary_when_brief_present():
